@@ -8,12 +8,13 @@ import {
   deleteToy,
 } from "../controllers/toyController.js";
 import { isLoggedIn } from "../middlewares/isLoggedIn.js";
+import isAdmin from "../middlewares/isAdmin.js";
 const toysRoutes = express.Router();
 
-toysRoutes.post("/", isLoggedIn, upload.array("files"), createNewToy);
+toysRoutes.post("/", isLoggedIn, isAdmin, upload.array("files"), createNewToy);
 toysRoutes.get("/", getToys);
 toysRoutes.get("/:id", getOneToy);
-toysRoutes.put("/:id", isLoggedIn, updateOneToy);
-toysRoutes.delete("/:id", isLoggedIn, deleteToy);
+toysRoutes.put("/:id", isLoggedIn, isAdmin, updateOneToy);
+toysRoutes.delete("/:id", isLoggedIn, isAdmin, deleteToy);
 
 export default toysRoutes;

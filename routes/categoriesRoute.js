@@ -8,17 +8,19 @@ import {
   updateCategory,
 } from "../controllers/categoriesController.js";
 import { isLoggedIn } from "../middlewares/isLoggedIn.js";
+import isAdmin from "../middlewares/isAdmin.js";
 
 const categoriesRoute = express.Router();
 categoriesRoute.post(
   "/",
   isLoggedIn,
+  isAdmin,
   categoryFileUpload.single("file"),
   createCategory
 );
 categoriesRoute.get("/", getCategories);
 categoriesRoute.get("/:id", getCategory);
-categoriesRoute.delete("/:id", deleteCategory);
-categoriesRoute.put("/:id", updateCategory);
+categoriesRoute.delete("/:id",isLoggedIn, isAdmin, deleteCategory);
+categoriesRoute.put("/:id",isLoggedIn, isAdmin, updateCategory);
 
 export default categoriesRoute;
