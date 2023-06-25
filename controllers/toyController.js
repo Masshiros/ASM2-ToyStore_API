@@ -122,7 +122,7 @@ export const getToys = asyncHandler(async (req, res) => {
   // page
   const page = parseInt(req.query.page) ? parseInt(req.query.page) : 1;
   // limit
-  const limit = parseInt(req.query.limit) ? parseInt(req.query.limit) : 1;
+  const limit = parseInt(req.query.limit) ? parseInt(req.query.limit) : 6;
   // start
   const start = (page - 1) * limit;
   // end
