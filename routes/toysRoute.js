@@ -7,7 +7,7 @@ import {
   updateOneToy,
   deleteToy,
 } from "../controllers/toyController.js";
-import { isLoggedIn } from "../middlewares/isLoggedin.js";
+import { isLoggedIn } from "../middlewares/isLoggedIn.js";
 const toysRoutes = express.Router();
 
 toysRoutes.post("/", isLoggedIn, upload.array("files"), createNewToy);
