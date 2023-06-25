@@ -4,7 +4,7 @@ import {
   login,
   getUserProfile,
 } from "../controllers/userController.js";
-import { isLoggedIn } from "../middlewares/isLoggedin.js";
+import { isLoggedIn } from "../middlewares/isLoggedIn.js";
 const userRoutes = express.Router();
 
 userRoutes.post("/register", register);
