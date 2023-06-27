@@ -205,6 +205,7 @@ export const updateOneToy = asyncHandler(async (req, res) => {
     },
     {
       new: true,
+      runValidators: true,
     }
   );
   res.json({

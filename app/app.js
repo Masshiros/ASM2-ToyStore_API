@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import cors from "cors";
 dotenv.config();
 import express from "express";
 import mongoConnect from "../config/mongoConnect.js";
@@ -16,6 +17,8 @@ import {
 // connect to mongoDB
 mongoConnect();
 const app = express();
+// cors
+app.use(cors());
 // pass req.body
 app.use(express.json());
 
